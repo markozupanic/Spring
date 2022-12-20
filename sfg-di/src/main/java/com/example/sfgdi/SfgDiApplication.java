@@ -1,6 +1,9 @@
 package com.example.sfgdi;
 
+import com.example.sfgdi.controllers.ConstructorInjectedController;
 import com.example.sfgdi.controllers.MyController;
+import com.example.sfgdi.controllers.PropertyInjctedController;
+import com.example.sfgdi.controllers.SetterUnjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +17,18 @@ public class SfgDiApplication {
 
         String greeting=myController.sayHello();
         System.out.println(greeting);
+
+        System.out.println("--------- Property");
+        PropertyInjctedController propertyInjctedController=(PropertyInjctedController) ctx.getBean("propertyInjctedController");
+        System.out.println(propertyInjctedController.getGreeting());
+
+        System.out.println("---------- Setter");
+        SetterUnjectedController setterUnjectedController=(SetterUnjectedController) ctx.getBean("setterUnjectedController");
+        System.out.println(setterUnjectedController.getGreeting());
+
+        System.out.println("------------- Constructor");
+        ConstructorInjectedController constructorInjectedController=(ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+        System.out.println(constructorInjectedController.getGreeting());
 
 
     }
