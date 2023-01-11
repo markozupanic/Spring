@@ -6,10 +6,6 @@ import petclinic.model.Owner;
 import petclinic.model.Vet;
 import petclinic.services.OwnerSevice;
 import petclinic.services.VetService;
-import petclinic.services.map.OwnerServiceMap;
-import petclinic.services.map.VetServiceMap;
-
-import java.util.Set;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -17,9 +13,9 @@ public class DataLoader implements CommandLineRunner {
     private  final OwnerSevice ownerSevice;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerSevice=new OwnerServiceMap();
-        vetService=new VetServiceMap();
+    public DataLoader(OwnerSevice ownerSevice, VetService vetService) {
+        this.ownerSevice = ownerSevice;
+        this.vetService = vetService;
     }
 
     @Override
